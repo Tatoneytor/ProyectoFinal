@@ -1,0 +1,44 @@
+app.delete('/api/palabras/:pos', (req, res) => {
+
+    let pos = req.params.pos
+    if (pos < 1 || pos > fraseArray.length) {
+        res.setHeader('Content-Type', 'application/json')
+        return res.status(400).json({
+            message: `La posicion debe estar entre 1 y ${fraseArray.length}`
+        })
+    }
+
+    let vieja = fraseArray[pos - 1]
+    fraseArray.splice(pos - 1, 1)
+    frase = fraseArray.join(' ')
+
+    res.setHeader('Content-Type', 'application/json')
+    res.status(200).json({
+        posEliminada: pos,
+        palabraEliminada: vieja,
+        frase
+    })
+})
+
+
+app.delete('/api/palabras/:pos', (req, res) => {
+
+    let pos = req.params.pos
+    if (pos < 1 || pos > fraseArray.length) {
+        res.setHeader('Content-Type', 'application/json')
+        return res.status(400).json({
+            message: `La posición debe estar entre 1 y ${fraseArray.length}`
+        })
+    }
+
+     let vieja = fraseArray[pos - 1]
+    fraseArray.splice(pos - 1, 1)
+    frase = fraseArray.join(' ')
+
+    res.setHeader('Content-Type', 'application/json')
+    res.status(200).json({
+        posEliminada: pos,
+        palabraReemplazada: vieja,
+        frase
+    })
+})

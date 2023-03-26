@@ -1,0 +1,29 @@
+<h1>Bienvenido a {{title}}</h1>
+
+<hr>
+<br>
+<p>Para ir al CHAT precione <a href="/chat">aquí</a>.</p>
+<p>Para ir al Real Time Products precione <a href="/realTimeProducts">aquí</a>.</p>
+<br>
+
+
+<h2>Productos de nuestra empresa PAGINADOS</h2>
+<hr>
+
+<ul>
+    {{#each usuarios}}
+        <li>
+            {{this.title}} {{this.category}} - {{this.price}} ({{this.code}})
+        </li>
+    {{/each}}
+</ul>
+
+<a href="/?pagina=1">Primer página</a>
+{{#if hasPrevPage}}
+    <a href="/?pagina={{prevPage}}">pág.Anterior</a>
+{{/if}}
+{{#if hasNextPage}}
+    <a href="/?pagina={{nextPage}}">pág.Siguiente</a>
+{{/if}}
+<a href="/?pagina={{totalPages}}">Última página</a>
+

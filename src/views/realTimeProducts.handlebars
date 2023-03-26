@@ -1,0 +1,27 @@
+<h1>Productos de {{title}}.</h1>
+<h2>Estos productos están cargados en tiempo real, con tecnología websocket.</h2>
+<hr>
+<br>
+<p>Para regresar al inicio precione <a href="/">aquí</a>.</p>
+<br>
+<div id="mensajeDeActualizacion"></div>
+
+{{#if existenciaDeStock}}
+<ul>
+    <div id="actualizador">
+        {{#each productos}}
+        <li>
+            <b> {{this.title}}</b>
+            <br>
+            Precio: {{this.price}}
+            <br>
+            Descripción: {{this.description}}
+            <br>
+        </li>
+        {{/each}}
+    </div>
+</ul>
+
+{{else}}
+<h3>No hay stock </h3>
+{{/if}}
